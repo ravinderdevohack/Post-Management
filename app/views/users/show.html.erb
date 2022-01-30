@@ -1,0 +1,11 @@
+<div class="d-flex justify-content-between container">
+  <div>
+    ID: <%= @user.id%><br>
+    Name: <%= @user.name %><br>
+    Email: <%= @user.email %><br>
+    <%= button_to 'Back', posts_path, method: :get %><br>
+    <%= button_to 'Edit Profile', edit_user_registration_path, method: :get %>
+  </div>
+ 
+  
+</div>

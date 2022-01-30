@@ -16,11 +16,13 @@
           <td class="border-1"><%=post.user.name%></td>
           <td ><%=button_to "Show", post_path(post), method: :get %></td>
 
-              <td ><%=button_to "Edit", edit_post_path(post), method: :get %></td>
-              <td ><%=button_to "Delete", post_path(post), method: :delete %></td>
+          <% if user_signed_in? && post.user.name == current_user.name  %>
+            <td ><%=button_to "Edit", edit_post_path(post), method: :get %></td>
+            <td ><%=button_to "Delete", post_path(post), method: :delete %></td>
+          <% end %>
         <% end %>
       </tr>
-      <% end %>
+    <% end %>
  
   <tr></tr>
 </table>

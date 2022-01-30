@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
+  # , controllers: { sessions: 'users/sessions' } 
+
+  get 'users/show'
   # get 'posts/index'
   # get 'posts/new'
   # get 'posts/create'
-  # get 'posts/show'
   # get 'posts/edit'
   # get 'posts/update'
   # get 'posts/destroy'
@@ -12,5 +15,5 @@ Rails.application.routes.draw do
   root "posts#index"
 
   resources :posts
-  resources :users
+  
 end
