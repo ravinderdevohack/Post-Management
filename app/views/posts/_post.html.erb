@@ -3,8 +3,47 @@
   <%= form.text_field :title , class:'input'%><br>
   <%= form.label :description, 'Description' %><br>
   <%= form.text_area :description, class:'input'%><br>
+  <%= form.label :file, 'Upload file' %><br>
+  <%= form.file_field :file, class:''%><br>
 
 
-  <input type="submit" value="Submit" id="submit-btn"></input>
+  <input type="button" value="Submit" id="submit-btn"></input>
 
 <% end %>
+
+<script type="text/javascript">
+  var regTitle = /^[\w+\s+]{1,}$/
+  var regDescription = /(.){10,}/
+
+  
+  var inputArray = document.querySelectorAll(".input");
+  var  myForm = document.getElementById("myPost");
+  var alertArray = ['title must be present', 'description must be present']
+  var regArray = [regTitle, regDescription]
+  var array = []
+  var submit = document.querySelector("#submit-btn");
+  submit.addEventListener("click", validaionCheck);
+  function validaionCheck(e) {
+  var  validation_pass = true
+    for (var i = 0; i < inputArray.length; i++) {
+
+      array.push(inputArray[i].value)
+      console.log(array)
+      if ( !regArray[i].test(array[i])) {
+        alert(alertArray[i]);
+        array.length = 0;
+        validation_pass = false
+        console.log(array[i]);
+        console.log(alertArray[i]);
+        break;
+      }
+    }
+    console.log('validation checked')
+    // if (validation_pass) ? myForm.submit() : e.preventDefault();
+    if (validation_pass) {
+      myForm.submit()
+    }else {
+      e.preventDefault()
+    }
+  }
+</script>
