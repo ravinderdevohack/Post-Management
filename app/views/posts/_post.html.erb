@@ -1,0 +1,12 @@
+<%= form_with  model: @post, url: @action == 'edit' ? post_path : posts_path, method: @action == 'edit' ? :patch : :post, id: 'myPost' do |form| %>
+  <%= form.label :tilte, 'Title' %><br>
+  <%= form.text_field :title , class:'input'%><br>
+  <%= form.label :description, 'Description' %><br>
+  <%= form.text_area :description, class:'input'%><br>
+  <%= form.label :user_id, 'User id' %><br>
+  <%= form.text_field :user_id, class:''%><br>
+
+
+  <input type="submit" value="Submit" id="submit-btn"></input>
+
+<% end %>

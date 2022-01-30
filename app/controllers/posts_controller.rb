@@ -1,0 +1,52 @@
+class PostsController < ApplicationController
+  def index
+    @posts = Post.all.order(:id)
+  end
+
+  def new
+    @action = 'new'
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.new(post_params)
+    if @post.save!
+      redirect_to root_path
+    else
+      render 'new'
+    end
+  end
+
+  def show
+    @post = Post.find(params[:id])
+
+  end
+
+  def edit
+    @action = 'edit'
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.update(display: 2)
+
+    redirect_to root_path
+  end
+
+
+  private
+  def post_params
+    params.require(:post).permit(:title, :description, :user_id)
+  end
+
+end
