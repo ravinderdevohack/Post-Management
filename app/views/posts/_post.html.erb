@@ -7,11 +7,13 @@
   <%= form.file_field :file, class:''%><br>
 
 
+  <input type="button" value="Save as Draft" id="draft-btn"></input>
   <input type="button" value="Submit" id="submit-btn"></input>
 
 <% end %>
 
-<script type="text/javascript">
+<%= javascript_include_tag 'save_as_draft'%>
+<!-- <script type="text/javascript">
   var regTitle = /^[\w+\s+]{1,}$/
   var regDescription = /(.){10,}/
 
@@ -47,3 +49,5 @@
     }
   }
 </script>
+ -->
+ 

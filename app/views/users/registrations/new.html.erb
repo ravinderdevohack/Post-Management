@@ -16,18 +16,20 @@
   <div class="field">
     <!-- Country -->
     <%= f.label :country %>
+    <%= f.select :country, options_for_select(CS.countries.map{|c| [c[1], c[1]]}), id:"country"%>
+
   </div>
 
   <div class="field">
     <!-- State -->
     <%= f.label :state %>
-    <%= f.select :state, options_for_select([]), id:'state' %>
+    <%= f.select :state, options_for_select([]), id:"state" %>
   </div>
 
   <div class="field">
     <!-- City -->
     <%= f.label :city %>
-    <%= f.select :city, options_for_select([]) %>
+    <%= f.select :city, options_for_select([]), id:"city" %>
   </div>
 
   <div class="field">
@@ -59,3 +61,5 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+
+<%= javascript_include_tag "cities" %> 

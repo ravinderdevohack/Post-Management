@@ -4,6 +4,39 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :name, "Name" %><br />
+    <%= f.text_field :name, class:"input" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone_number, "Phone Number" %><br />
+    <%= f.text_field :phone_number, class:"input" %>
+  </div>
+  
+  <div class="field">
+    <!-- Country -->
+    <%= f.label :country %>
+    <%= f.select :country, options_for_select(CS.countries.map{|c| [c[1], c[1]]}), id:"country"%>
+
+  </div>
+
+  <div class="field">
+    <!-- State -->
+    <%= f.label :state %>
+    <%= f.select :state, options_for_select([]), id:"state" %>
+  </div>
+
+  <div class="field">
+    <!-- City -->
+    <%= f.label :city %>
+    <%= f.select :city, options_for_select([]), id:"city" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :avatar, "Profile Photo" %><br />
+    <%= f.file_field :avatar, class:"" %>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -36,8 +69,13 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+<%= javascript_include_tag "cities" %> 
+
+
+<!-- @RenderPage("~/views/users/state.js.erb")
+ -->

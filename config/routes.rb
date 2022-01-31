@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth' }
+  devise_for :users, controllers: {sessions: 'users/sessions', omniauth_callbacks: 'users/omniauth' }
   # , controllers: { sessions: 'users/sessions' } 
 
+  get 'state', to: 'users#state'
+  get 'cities', to: 'users#cities'
   get 'users/show'
-  # get 'posts/index'
-  # get 'posts/new'
+  post 'draft', to: 'posts#draft'
+  get 'posts/draft', to: 'posts#show_draft'
   # get 'posts/create'
   # get 'posts/edit'
   # get 'posts/update'
@@ -15,5 +17,7 @@ Rails.application.routes.draw do
   root "posts#index"
 
   resources :posts
-  
+  # devise_scope :user do
+  #   get 'edit' => 'users/registrations#edit'
+  # end  
 end

@@ -76,9 +76,11 @@ gem 'awesome_print'
 gem 'dotenv-rails'
 gem 'letter_opener'
 
+gem 'jquery-rails'
 gem 'devise'
 gem 'active_model_serializers'
 
+gem 'city-state'
+
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
-gem 'activerecord-session_store', '~> 1.0'
