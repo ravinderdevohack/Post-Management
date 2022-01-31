@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   end
 
   def draft
-    @post = current_user.posts.new()
+    @post = current_user.posts.new(post_params)
     debugger
     @post.save!
     @post.update(display: 1)

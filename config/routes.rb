@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {sessions: 'users/sessions', omniauth_callbacks: 'users/omniauth' }
+  devise_for :users, controllers: {sessions: 'users/sessions', :registrations => 'users/registrations', omniauth_callbacks: 'users/omniauth' }
   # , controllers: { sessions: 'users/sessions' } 
 
   get 'state', to: 'users#state'
