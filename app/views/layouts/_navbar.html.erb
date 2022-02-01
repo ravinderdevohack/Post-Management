@@ -29,6 +29,13 @@
           </li>
         <% end %>
 
+        <% if user_signed_in? && current_user.user_type == 'admin'%>
+          <li class="nav-item">
+            <%= link_to 'Users', users_path ,method: :get, class: 'nav-link' %>
+          </li>
+
+        <% end %>
+
 
       </ul>
       <form class="d-flex">

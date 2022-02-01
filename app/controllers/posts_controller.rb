@@ -49,9 +49,10 @@ class PostsController < ApplicationController
 
   def draft
     @post = current_user.posts.new(post_params)
-    debugger
+    # debugger
     @post.save!
     @post.update(display: 1)
+    redirect_to root_path
   end
 
 

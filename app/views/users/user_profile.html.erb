@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center container">
+  <div>
+    ID: <%= @user.id%><br>
+    Name: <%= @user.name %><br>
+    Email: <%= @user.email %><br>
+    Phone: <%= @user.phone_number %><br>
+    City: <%= @user.city %><br>
+    State: <%= @user.state %><br>
+    Country: <%= @user.country %><br>
+    <%= button_to 'Activate Account', user_activate_path, method: :get , id: 'activate'%>
+    <%= button_to 'Deactivate Account', user_deactivate_path, method: :get , id: 'deactivate'%>
+
+    <%= button_to 'Back', posts_path, method: :get %><br>
+  </div>  
+</div>
+
+
+<script type="text/javascript">
+  
+  var activate = document.querySelector('#activate')
+  var deactivate = document.querySelector('#deactivate')
+
+  activate.addEventListener('click', function(){
+    alert('selected user account is activated')
+  })
+  
+  deactivate.addEventListener('click', function(){
+    alert('selected user account is deactivated')
+  })
+</script>

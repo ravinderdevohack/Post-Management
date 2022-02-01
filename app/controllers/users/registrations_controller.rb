@@ -10,9 +10,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+      super
+
+    # @user = User.find_by(email: "#{params[:user][:email]}")
+    # debugger
+
+    # if (@user.display == 'deleted')
+    #   @user.update(display: 'show')
+    #   redirect_to user_session_path
+    # else
+    #   super
+    # end
+  end
 
   # GET /resource/edit
   # def edit
@@ -29,13 +39,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  def destroy
-    resource.soft_delete
-    Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
-    set_flash_message :notice, :destroyed
-    yield resource if block_given?
-    respond_with_navigational(resource){ redirect_to after_sign_out_path_for(resource_name) }
-  end
   
 
   # GET /resource/cancel
@@ -51,10 +54,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:name, :phone_number, :country, :state, :city, :email, :password, :password_confirmation)}
-  #   debugger
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:name, :phone_number, :country, :state, :city, :email, :password, :password_confirmation)}
+    # debugger
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
