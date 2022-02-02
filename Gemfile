@@ -84,3 +84,4 @@ gem 'city-state'
 
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
+gem 'carrierwave'

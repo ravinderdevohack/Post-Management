@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_01_120047) do
+ActiveRecord::Schema.define(version: 2022_02_02_085720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2022_02_01_120047) do
     t.string "country"
     t.string "state"
     t.string "city"
-    t.integer "display"
     t.string "provider", limit: 50, default: "", null: false
     t.string "uid", limit: 500, default: "", null: false
     t.string "confirmation_token"
@@ -71,6 +70,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_120047) do
     t.string "last_sign_in_ip"
     t.datetime "deleted_at", precision: 6
     t.integer "user_type", default: 0, null: false
+    t.integer "display", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

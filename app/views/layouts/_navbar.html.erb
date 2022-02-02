@@ -19,6 +19,9 @@
           <li class="nav-item">
             <%= link_to 'Profile', users_show_path ,method: :get, class: 'nav-link' %>
           </li>
+          <li class="nav-item">
+            <%= link_to 'Edit Profile', edit_user_registration_path ,method: :get, class: 'nav-link' %>
+          </li>
          
         <% else%>
           <li class="nav-item">
@@ -38,10 +41,11 @@
 
 
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <%= form_with url:posts_search_path,  model: @post, method: :get do |form| %>
+        <%= form.text_field :title %>
+        <button >Submit</button>
+      <% end %>
+  
     </div>
   </div>
 </nav>
