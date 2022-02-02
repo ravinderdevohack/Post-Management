@@ -3,8 +3,11 @@
     ID: <%= @user.id%><br>
     Name: <%= @user.name %><br>
     Email: <%= @user.email %><br>
-    <%= button_to 'Back', posts_path, method: :get %><br>
-    <%= button_to 'Edit Profile', edit_user_registration_path, method: :get %>
+    Phone: <%= @user.phone_number %><br>
+    City: <%= @user.city %><br>
+    State: <%= @user.state %><br>
+    Country: <%= @user.country %><br>
+    <%= button_to 'Back', users_path, method: :get %><br>
   </div>
  
   

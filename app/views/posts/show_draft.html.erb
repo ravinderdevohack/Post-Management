@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <th class="border-2">ID</th>
+    <th class="border-2">Title</th>
+    <th class="border-2">Description</th>
+    <th class="border-2">Creator</th>
+    <th class="border-2" colspan="3">ACtion</th>
+    <th></th>
+  </tr>
+    <% @posts.each do |post| %>
+      <tr>
+          <td class="border-1"><%=post.id %></td>
+          <td class="border-1"><%=post.title %></td>
+          <td class="border-1"><%=post.description %></td>
+          <td class="border-1"><%=post.user.name%></td>
+          <td ><%=button_to "Show", post_path(post), method: :get %></td>
+        
+          <% if user_signed_in? && post.user.name == current_user.name  %>
+            <td ><%=button_to "Edit", edit_post_path(post), method: :get %></td>
+            <td ><%=button_to "Delete", post_path(post), method: :delete %></td>
+          <% end %>
+      </tr>
+    <% end %>
+ 
+  <tr></tr>
+</table>

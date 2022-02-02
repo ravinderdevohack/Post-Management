@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -10,26 +10,39 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+      super
+
+    # @user = User.find_by(email: "#{params[:user][:email]}")
+    # debugger
+
+    # if (@user.display == 'deleted')
+    #   @user.update(display: 'show')
+    #   redirect_to user_session_path
+    # else
+    #   super
+    # end
+  end
 
   # GET /resource/edit
   # def edit
   #   super
   # end
 
+  def state
+    @states = CS.states(params[:country])
+    # debugger
+  end
+
   # PUT /resource
   # def update
   #   super
   # end
 
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  
 
   # GET /resource/cancel
+
   # Forces the session data which is usually expired after sign
   # in to be expired now. This is useful if the user wants to
   # cancel oauth signing in/up in the middle of the process,
@@ -41,9 +54,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:name, :phone_number, :country, :state, :city, :email, :password, :password_confirmation)}
+    # debugger
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

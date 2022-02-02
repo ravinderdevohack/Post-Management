@@ -8,6 +8,33 @@
     <%= f.text_field :name, class:"input" %>
   </div>
 
+  <div class="field">
+    <%= f.label :phone_number, "Phone Number" %><br />
+    <%= f.text_field :phone_number, class:"input" %>
+  </div>
+  
+  <div class="field">
+    <!-- Country -->
+    <%= f.label :country %>
+    <%= f.select :country, options_for_select(CS.countries.map{|c| [c[1], c[1]]}), id:"country"%>
+
+  </div>
+
+  <div class="field">
+    <!-- State -->
+    <%= f.label :state %>
+    <%= f.select :state, options_for_select([]), id:"state" %>
+  </div>
+
+  <div class="field">
+    <!-- City -->
+    <%= f.label :city %>
+    <%= f.select :city, options_for_select([]), id:"city" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :avatar, "Profile Photo" %><br />
+    <%= f.file_field :avatar, class:"" %>
 
 
   <div class="field">
@@ -34,3 +61,5 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+
+<%= javascript_include_tag "cities" %> 

@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th class="border-2">ID</th>
+    <th class="border-2">Name</th>
+    <th class="border-2">Contact</th>
+    <th class="border-2">User Type</th>
+    <th class="border-2" colspan="3">ACtion</th>
+    <th></th>
+  </tr>
+    <% @users.each do |user| %>
+      <tr>
+          <td class="border-1"><%=user.id %></td>
+          <td class="border-1"><%=user.name %></td>
+          <td class="border-1"><%=user.phone_number %></td>
+          <td class="border-1"><%=user.user_type %></td>
+          <td ><%=button_to "Show", user_profile_path(user), method: :get %></td>
+      </tr>
+    <% end %>
+ 
+  <tr></tr>
+</table>

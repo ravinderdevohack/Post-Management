@@ -43,10 +43,22 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  def show_draft
+    @posts = Post.all.order(:id).where(display: 'draft')
+  end
+
+  def draft
+    @post = current_user.posts.new(post_params)
+    # debugger
+    @post.save!
+    @post.update(display: 1)
+    redirect_to root_path
+  end
+
 
   private
   def post_params
-    params.require(:post).permit(:title, :description, :user_id)
+    params.require(:post).permit(:title, :description)
   end
 
 end
