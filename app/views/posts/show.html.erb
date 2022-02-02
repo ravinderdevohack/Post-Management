@@ -1,5 +1,5 @@
 ID: <%= @post.id%><br>
 Title: <%= @post.title %><br>
 Description: <%= @post.description %><br>
-
+File: <%= image_tag @post.file_url, height:200, width:200 if @post.file_url.present?  %>
 <%= button_to 'Home', posts_path, method: :get %>

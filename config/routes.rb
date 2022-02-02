@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   post 'draft', to: 'posts#draft'
   get 'posts/draft', to: 'posts#show_draft'
+  get 'posts/search'
 
   root "posts#index"
 

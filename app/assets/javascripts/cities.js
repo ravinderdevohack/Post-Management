@@ -1,7 +1,7 @@
 var country = document.getElementById("user_country");
 var state = document.getElementById("user_state");
 
-country.addEventListener("change", function(){
+country.addEventListener("click", function(){
   $.ajax({
     url: "/state?country=" + country.value,
     type: "GET"
