@@ -80,8 +80,10 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'active_model_serializers'
 
+
 gem 'city-state'
 
 gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'carrierwave'
+

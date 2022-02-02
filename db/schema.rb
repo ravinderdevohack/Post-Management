@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_02_085720) do
+ActiveRecord::Schema.define(version: 2022_02_01_120047) do
+
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +61,7 @@ ActiveRecord::Schema.define(version: 2022_02_02_085720) do
     t.string "city"
     t.string "provider", limit: 50, default: "", null: false
     t.string "uid", limit: 500, default: "", null: false
+
     t.string "confirmation_token"
     t.datetime "confirmed_at", precision: 6
     t.datetime "confirmation_sent_at", precision: 6
