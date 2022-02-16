@@ -1,0 +1,17 @@
+<% @posts.each do |post| %>
+  <tr>
+    <% if post.display == 'show'%>
+      <td class="border-1"><%=post.id %></td>
+      <td class="border-1"><%=post.title %></td>
+      <td class="border-1", style="height: 200px;"><%=post.description %></td>
+      <td class="border-1"><%=post.user.name%></td>
+      <td class="border-1"><%=button_to "Show", post_path(post), method: :get %></td>
+
+      <% if user_signed_in? && post.user.name == current_user.name  %>
+        <td class="border-1"><%=button_to "Edit", edit_post_path(post), method: :get %></td>
+        <td class="border-1"><%=button_to "Delete", post_path(post), method: :delete %></td>
+      <% end %>
+    <% end %>
+  </tr>
+<% end %>
+ 

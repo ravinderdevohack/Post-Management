@@ -1,0 +1,9 @@
+
+$('#my-post').append("<%= j render 'posts/post_pagination' %>");
+<% if @posts.next_page %>
+  $('.pagination').replaceWith("<%= j will_paginate(@posts) %>");
+<% #debugger %>
+<% else %>
+  $(window).off('scroll');
+  $('.pagination').remove();
+<% end %>
