@@ -87,3 +87,5 @@ gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'carrierwave'
 
+gem 'will_paginate'
+# gem 'bootstrap-will_paginate'

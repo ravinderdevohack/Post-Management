@@ -1,6 +1,13 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order(:id)
+    # @posts = Post.all.order(:id)
+    @posts = Post.paginate(page: params[:page], per_page: 10).order(:id)
+    # debugger
+    respond_to do |format|
+      format.js
+      format.html
+    end
+    
   end
 
   def new
@@ -50,7 +57,7 @@ class PostsController < ApplicationController
 
   def draft
     @post = current_user.posts.new(post_params)
-    # debugger
+    debugger
     @post.save!
     @post.update(display: 1)
     redirect_to root_path
